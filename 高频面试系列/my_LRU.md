@@ -50,8 +50,7 @@ public:
         }
 
         Node* del = tail->prev;
-        remove(del);
-        
+        remove(del); 
         return del;
     }
 
@@ -79,9 +78,7 @@ public:
             makeRecently(key);
             return umap[key]->_val;
         }
-
-        return -1;
-        
+        return -1;    
     }
     
     void put(int key, int value) {
@@ -100,11 +97,6 @@ public:
     }
     // 将某个 key 重新提升为最近使用节点
     void makeRecently(int key) {
-
-        if(umap.find(key) == umap.end()) {
-           return;
-        }
-
         Node* cur = umap[key];
         // 先删除
         cache.remove(cur);
